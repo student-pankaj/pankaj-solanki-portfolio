@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ── Design tokens ──────────────────────────────── */
+:root {
+  --teal:    #0ff0c0;
+  --blue:    #3b82f6;
+  --purple:  #8b5cf6;
+  --bg:      #050510;
+}
+
+html { scroll-behavior: smooth; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility classes ────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glow-teal  { box-shadow: 0 0 40px rgba(15, 240, 192, 0.15); }
+.glow-blue  { box-shadow: 0 0 40px rgba(59, 130, 246, 0.15); }
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--teal), var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ── Animated gradient border ───────────────────── */
+.border-gradient-animate {
+  position: relative;
+  border-radius: 1rem;
+}
+.border-gradient-animate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--teal), var(--blue), var(--purple));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Noise texture overlay ──────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+/* ── Typing cursor ─────────────────────────────── */
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.cursor { animation: blink 1s infinite; }
+
+/* ── Floating orbs ──────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+.orb { animation: float 8s ease-in-out infinite; }
+.orb-2 { animation: float 10s ease-in-out infinite reverse; }
+
+/* ── Progress bar animate ───────────────────────── */
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--target); }
+}
+.progress-fill {
+  animation: fillBar 1.5s ease-out forwards;
+  width: 0%;
+}
+
+/* ── Tag pill hover ──────────────────────────────── */
+.tag-pill {
+  transition: all 0.2s ease;
+}
+.tag-pill:hover {
+  background: rgba(15, 240, 192, 0.15);
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ── Stat card ───────────────────────────────────── */
+.stat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(15, 240, 192, 0.1);
+}
+
+/* ── Project card ────────────────────────────────── */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+/* ── Btn primary ──────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  color: #000;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  color: #e2e8f0;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  border-color: var(--teal);
+  background: rgba(15,240,192,0.05);
+  transform: translateY(-2px);
+}
+
+/* ── Mobile Responsiveness ──────────────────────── */
+@media (max-width: 768px) {
+  section { padding: 60px 20px !important; }
+  
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .stat-card {
+    padding: 16px 20px !important;
+    min-width: 100% !important;
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  h1 { font-size: 2.8rem !important; }
+  h2 { font-size: 1.8rem !important; }
+
+  .badge-certified, .badge-experience {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .badge-certified { right: -5% !important; top: 5% !important; }
+  .badge-experience { left: -5% !important; bottom: 10% !important; }
+  
+  .badge-certified div:first-child, 
+  .badge-experience div:first-child {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .badge-certified div:last-child div:first-child,
+  .badge-experience div:last-child div:first-child {
+    font-size: 0.75rem !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.2rem !important; }
+  .section-label { letter-spacing: 0.1em; }
+}
+
