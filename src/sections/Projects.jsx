@@ -3,16 +3,16 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
-    title: 'Sales Savvy',
-    subtitle: 'CRM & Sales Dashboard',
+    title: 'Enterprise Internal Tool',
+    subtitle: 'Employee Management',
     description:
-      'A comprehensive CRM platform for managing leads, tracking sales pipelines, and visualizing performance metrics. Features real-time dashboards, predictive analytics, and automated reporting.',
-    techs: ['Spring Boot', 'React', 'PostgreSQL', 'REST API', 'Chart.js'],
+      'An enterprise-grade internal tool for managing employee records, tracking roles, and handling access control. Features clean MVC architecture with optimized MySQL queries, Role-based Access Control (RBAC), and robust RESTful APIs secured with Spring Security for full employee lifecycle management.',
+    techs: ['Java', 'Spring Boot', 'REST APIs', 'MySQL', 'Hibernate', 'Spring Security'],
     github: '#',
     demo: '#',
-    gradient: 'from-teal-500/20 to-blue-600/20',
-    accent: '#0ff0c0',
-    icon: '📊',
+    gradient: 'from-blue-600/20 to-indigo-600/20',
+    accent: '#3b82f6',
+    icon: '🏢',
   },
   {
     title: 'BajarHub',

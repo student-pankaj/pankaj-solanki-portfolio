@@ -140,7 +140,7 @@ export function Hero() {
                   <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#e2e8f0' }}>
                     {s.value}
                   </div>
-                  <div style={{ fontSize: '0.65rem', color: '#64748b', marginTop: 2, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{s.label}</div>
+                  <div style={{ fontSize: '0.65rem', color: '#94a3b8', marginTop: 2, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -227,7 +227,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e2e8f0' }}>6× Certified</div>
-                  <div style={{ fontSize: '0.65rem', color: '#64748b', fontWeight: 500 }}>HackerRank</div>
+                  <div style={{ fontSize: '0.65rem', color: '#cbd5e1', fontWeight: 500 }}>HackerRank</div>
                 </div>
               </motion.div>
 
@@ -253,7 +253,7 @@ export function Hero() {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#e2e8f0' }}>10 Months</div>
-                  <div style={{ fontSize: '0.65rem', color: '#64748b', fontWeight: 500 }}>Industry Experience</div>
+                  <div style={{ fontSize: '0.65rem', color: '#cbd5e1', fontWeight: 500 }}>Industry Experience</div>
                 </div>
               </motion.div>
             </motion.div>

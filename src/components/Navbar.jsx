@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const links = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
+const links = ['About', 'Skills', 'Projects', 'Experience', 'Testimonials', 'Contact'];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,9 +33,9 @@ export function Navbar() {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         transition: 'all 0.4s ease',
-        background: scrolled ? 'rgba(5,5,16,0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        background: (scrolled || menuOpen) ? 'rgba(5,5,16,0.95)' : 'transparent',
+        backdropFilter: (scrolled || menuOpen) ? 'blur(24px)' : 'none',
+        borderBottom: (scrolled || menuOpen) ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
         padding: scrolled ? '14px 0' : '24px 0',
       }}
     >
@@ -98,10 +98,24 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="glass" style={{ position: 'absolute', top: '100%', left: 0, right: 0, padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div className="mobile-menu-animate" style={{
+          position: 'absolute', top: '100%', left: 0, right: 0,
+          background: 'rgba(5,5,16,0.98)',
+          backdropFilter: 'blur(20px)',
+          padding: '24px',
+          display: 'flex', flexDirection: 'column', gap: 12,
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+        }}>
           {links.map(l => (
             <button key={l} onClick={() => scrollTo(l.toLowerCase())}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e2e8f0', textAlign: 'left', padding: '8px 0', fontFamily: 'Inter, sans-serif' }}>
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                color: '#f8fafc', textAlign: 'left',
+                padding: '12px 0', fontSize: '1.1rem', fontWeight: 500,
+                fontFamily: 'Inter, sans-serif',
+                borderBottom: '1px solid rgba(255,255,255,0.03)',
+              }}>
               {l}
             </button>
           ))}

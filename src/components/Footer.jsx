@@ -21,7 +21,7 @@ export function Footer() {
 
         {/* Nav links */}
         <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
-          {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map(l => (
+          {['About', 'Skills', 'Projects', 'Experience', 'Testimonials', 'Contact'].map(l => (
             <button key={l} onClick={() => document.getElementById(l.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#475569', fontSize: '0.85rem', fontFamily: 'Inter, sans-serif', transition: 'color 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
